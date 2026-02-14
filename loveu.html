@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💖</title>
+
+<style>
+body {
+    margin: 0;
+    text-align: center;
+    font-family: Arial;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 120px;
+    font-size: 28px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #ff1e56;
+    color: white;
+}
+
+#noBtn {
+    background: black;
+    color: white;
+}
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 4s linear infinite;
+}
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Will You Be My Valentine? 💖</h1>
+
+<button id="yesBtn" onclick="yesClick()">Yes 💕</button>
+<button id="noBtn" onclick="growYes()">No 😢</button>
+
+<script>
+let size = 18;
+
+function yesClick() {
+    document.body.innerHTML = "<h1 style='margin-top:150px;'>Yayyyy 💖 I Love Youuuu 😭💕</h1>";
+}
+
+function growYes() {
+    size += 5;
+    document.getElementById("yesBtn").style.fontSize = size + "px";
+}
+
+// floating hearts
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+}
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
